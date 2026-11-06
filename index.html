@@ -1,217 +1,886 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aspire High | K–12 Tutoring Intake Form</title>
-<style>
-:root{--navy:#102747;--maroon:#7b1838;--ink:#243247;--muted:#657286;--line:#dce2ea;--pale:#f4f6fa}
-*{box-sizing:border-box}body{margin:0;background:#f3f5f8;color:var(--ink);font:16px/1.5 Arial,Helvetica,sans-serif}
-header{background:linear-gradient(115deg,var(--navy),#183b62);color:white;padding:28px 18px}
-.head{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:14px}.mark{width:54px;height:54px;border:2px solid white;border-radius:50%;display:grid;place-items:center;font-size:25px}
-.brand h1{font-size:22px;line-height:1.1;margin:0}.brand p{margin:5px 0 0;color:#e8edf5;font-size:13px;letter-spacing:.5px}
-.lang{display:flex;gap:8px}.lang button{border:1px solid white;border-radius:22px;padding:9px 16px;background:transparent;color:white;font-weight:bold;cursor:pointer}.lang button.active{background:white;color:var(--navy)}
-main{max-width:1000px;margin:25px auto;padding:0 14px 50px}.intro,.section,.notice{background:white;border:1px solid var(--line);border-radius:13px;padding:22px;margin-bottom:17px;box-shadow:0 3px 12px #15263b0a}
-.intro h2{margin:0 0 7px;color:var(--navy);font-size:25px}.intro p{margin:7px 0;color:#536176}.tag{display:inline-block;background:#f7eaf0;color:var(--maroon);font-weight:bold;padding:5px 10px;border-radius:20px;font-size:12px}
-.section h3{margin:0 0 4px;color:var(--navy);font-size:19px}.sub{margin:0 0 17px;color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{min-width:0}.field.full{grid-column:1/-1}
-label,.legend{display:block;font-weight:650;margin:0 0 6px;color:#28374c}.req{color:var(--maroon)}
-input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cbd3df;border-radius:8px;background:white;color:#1f2d40;font:inherit}
-input:focus,select:focus,textarea:focus{outline:3px solid #dce8f5;border-color:#42658d}textarea{min-height:88px;resize:vertical}
-.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 16px}.options label{font-weight:400;display:flex;align-items:flex-start;gap:8px;margin:0}.options input{width:auto;margin-top:4px;accent-color:var(--maroon)}
-.hint{font-size:12px;color:var(--muted);margin-top:5px}.notice{border-left:5px solid var(--maroon);background:#fffafb;font-size:14px}
-.actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.submit{background:var(--maroon);color:white;border:0;border-radius:9px;padding:14px 24px;font-size:16px;font-weight:bold;cursor:pointer}.submit:hover{background:#5e102b}.status{font-weight:600}.small{font-size:13px;color:var(--muted)}
-footer{text-align:center;color:#667286;font-size:13px;padding:20px}
-@media(max-width:650px){.grid,.options{grid-template-columns:1fr}.intro,.section{padding:17px}.brand h1{font-size:19px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aspire High | K–12 Tutoring Intake Form</title>
+    <style>
+    :root {
+        --navy: #102747;
+        --maroon: #7b1838;
+        --ink: #243247;
+        --muted: #657286;
+        --line: #dce2ea;
+        --pale: #f4f6fa
+    }
+
+    * {
+        box-sizing:border-box
+    }
+
+    body {
+        margin: 0;
+        background: #f3f5f8;
+        color: var(--ink);
+        font: 16px/1.5 Arial, Helvetica, sans-serif
+    }
+
+    header {
+        background: linear-gradient(115deg, var(--navy), #183b62);
+        color: white;
+        padding: 28px 18px
+    }
+
+    .head {
+        max-width: 1000px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap:14px
+    }
+
+    .mark {
+        width: 54px;
+        height: 54px;
+        border: 2px solid white;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 25px
+    }
+
+    .brand h1 {
+        font-size: 22px;
+        line-height: 1.1;
+        margin:0
+    }
+
+    .brand p {
+        margin: 5px 0 0;
+        color: #e8edf5;
+        font-size: 13px;
+        letter-spacing: .5px
+    }
+
+    .lang {
+        display: flex;
+        gap:8px
+    }
+
+    .lang button {
+        border: 1px solid white;
+        border-radius: 22px;
+        padding: 9px 16px;
+        background: transparent;
+        color: white;
+        font-weight: bold;
+        cursor:pointer
+    }
+
+    .lang button.active {
+        background: white;
+        color: var(--navy)
+    }
+
+    main {
+        max-width: 1000px;
+        margin: 25px auto;
+        padding:0 14px 50px
+    }
+
+    .intro, .section, .notice {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        padding: 22px;
+        margin-bottom: 17px;
+        box-shadow: 0 3px 12px #15263b0a
+    }
+
+    .intro h2 {
+        margin: 0 0 7px;
+        color: var(--navy);
+        font-size:25px
+    }
+
+    .intro p {
+        margin: 7px 0;
+        color:#536176
+    }
+
+    .tag {
+        display: inline-block;
+        background: #f7eaf0;
+        color: var(--maroon);
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px
+    }
+
+    .section h3 {
+        margin: 0 0 4px;
+        color: var(--navy);
+        font-size:19px
+    }
+
+    .sub {
+        margin: 0 0 17px;
+        color: var(--muted);
+        font-size: 14px
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap:15px
+    }
+
+    .field {
+        min-width:0
+    }
+
+    .field.full {
+        grid-column: 1/-1
+    }
+
+    label, .legend {
+        display: block;
+        font-weight: 650;
+        margin: 0 0 6px;
+        color:#28374c
+    }
+
+    .req {
+        color: var(--maroon)
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid #cbd3df;
+        border-radius: 8px;
+        background: white;
+        color: #1f2d40;
+        font: inherit
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: 3px solid #dce8f5;
+        border-color:#42658d
+    }
+
+    textarea {
+        min-height: 88px;
+        resize: vertical
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap:9px 16px
+    }
+
+    .options label {
+        font-weight: 400;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin:0
+    }
+
+    .options input {
+        width: auto;
+        margin-top: 4px;
+        accent-color: var(--maroon)
+    }
+
+    .hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top:5px
+    }
+
+    .notice {
+        border-left: 5px solid var(--maroon);
+        background: #fffafb;
+        font-size: 14px
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap:wrap
+    }
+
+    .submit {
+        background: var(--maroon);
+        color: white;
+        border: 0;
+        border-radius: 9px;
+        padding: 14px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor:pointer
+    }
+
+    .submit:hover {
+        background:#5e102b
+    }
+
+    .status {
+        font-weight:600
+    }
+
+    .small {
+        font-size: 13px;
+        color: var(--muted)
+    }
+
+    footer {
+        text-align: center;
+        color: #667286;
+        font-size: 13px;
+        padding: 20px
+    }
+
+    @media (max-width: 650px) {
+        .grid, .options {
+            grid-template-columns:1fr
+        }
+
+        .intro, .section {
+            padding:17px
+        }
+
+        .brand h1 {
+            font-size: 19px
+        }
+    }
+    </style>
 </head>
 <body>
-<header><div class="head">
- <div class="brand"><div class="mark" aria-hidden="true">✦</div><div><h1>ASPIRE HIGH</h1><p>YOUTH DEVELOPMENT INC. · EMPOWER · MENTOR · BUILD FUTURES</p></div></div>
- <div class="lang" aria-label="Language"><button type="button" id="enBtn" class="active" onclick="setLang('en')">English</button><button type="button" id="esBtn" onclick="setLang('es')">Español</button></div>
-</div></header>
-<main>
-<div class="intro">
- <span class="tag" data-en="PARENT / GUARDIAN APPLICATION" data-es="SOLICITUD PARA PADRES / TUTORES">PARENT / GUARDIAN APPLICATION</span>
- <h2 data-en="K–12 Tutoring & Educational Support Intake Form" data-es="Formulario de inscripción para tutoría y apoyo educativo K–12">K–12 Tutoring & Educational Support Intake Form</h2>
- <p data-en="Please complete one form for each student. This information helps us understand your child's learning goals and identify appropriate support." data-es="Complete un formulario por cada estudiante. Esta información nos ayuda a comprender las metas de aprendizaje de su hijo/a e identificar el apoyo adecuado.">Please complete one form for each student. This information helps us understand your child's learning goals and identify appropriate support.</p>
- <p class="small" data-en="Fields marked * are required. You may switch languages at any time." data-es="Los campos marcados con * son obligatorios. Puede cambiar de idioma en cualquier momento.">Fields marked * are required. You may switch languages at any time.</p>
-</div>
-<form id="intakeForm">
-<section class="section">
-<h3 data-en="1. Parent / Guardian Information" data-es="1. Información del padre, madre o tutor">1. Parent / Guardian Information</h3><p class="sub" data-en="Who should we contact about the student?" data-es="¿Con quién debemos comunicarnos sobre el estudiante?">Who should we contact about the student?</p>
-<div class="grid">
-<div class="field"><label data-en="Parent / Guardian full name *" data-es="Nombre completo del padre, madre o tutor *"></label><input name="parent_name" required autocomplete="name"></div>
-<div class="field"><label data-en="Email address *" data-es="Correo electrónico *"></label><input type="email" name="parent_email" required autocomplete="email"></div>
-<div class="field"><label data-en="Phone number *" data-es="Número de teléfono *"></label><input type="tel" name="parent_phone" required autocomplete="tel"></div>
-<div class="field"><label data-en="Preferred language" data-es="Idioma preferido"></label><select name="preferred_language"><option value="English">English</option><option value="Spanish">Español</option><option value="Both / Ambos">Both / Ambos</option></select></div>
-</div></section>
+    <header>
+        <div class="head">
+            <div class="brand">
+                <div class="mark" aria-hidden="true">✦</div>
+                <div>
+                    <h1>ASPIRE HIGH</h1>
+                    <p>YOUTH DEVELOPMENT INC. · EMPOWER · MENTOR · BUILD FUTURES</p>
+                </div>
+            </div>
+            <div class="lang" aria-label="Language">
+                <button type="button" id="enBtn" class="active" onclick="setLang('en')">English</button>
+                <button type="button" id="esBtn" onclick="setLang('es')">Español</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="intro">
+            <span class="tag" data-en="PARENT / GUARDIAN APPLICATION" data-es="SOLICITUD PARA PADRES / TUTORES">PARENT / GUARDIAN APPLICATION</span>
+            <h2 data-en="K–12 Tutoring & Educational Support Intake Form" data-es="Formulario de inscripción para tutoría y apoyo educativo K–12">K–12 Tutoring & Educational Support Intake Form</h2>
+            <p data-en="Please complete one form for each student. This information helps us understand your child's learning goals and identify appropriate support." data-es="Complete un formulario por cada estudiante. Esta información nos ayuda a comprender las metas de aprendizaje de su hijo/a e identificar el apoyo adecuado.">Please complete one form for each student. This information helps us understand your child's learning goals and identify appropriate support.</p>
+            <p class="small" data-en="Fields marked * are required. You may switch languages at any time." data-es="Los campos marcados con * son obligatorios. Puede cambiar de idioma en cualquier momento.">Fields marked * are required. You may switch languages at any time.</p>
+        </div>
+        <form id="intakeForm">
+            <section class="section">
+                <h3 data-en="1. Parent / Guardian Information" data-es="1. Información del padre, madre o tutor">1. Parent / Guardian Information</h3>
+                <p class="sub" data-en="Who should we contact about the student?" data-es="¿Con quién debemos comunicarnos sobre el estudiante?">Who should we contact about the student?</p>
+                <div class="grid">
+                    <div class="field">
+                        <label data-en="Parent / Guardian full name *" data-es="Nombre completo del padre, madre o tutor *"></label>
+                        <input name="parent_name" required autocomplete="name">
+                    </div>
+                    <div class="field">
+                        <label data-en="Email address *" data-es="Correo electrónico *"></label>
+                        <input type="email" name="parent_email" required autocomplete="email">
+                    </div>
+                    <div class="field">
+                        <label data-en="Phone number *" data-es="Número de teléfono *"></label>
+                        <input type="tel" name="parent_phone" required autocomplete="tel">
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred language" data-es="Idioma preferido"></label>
+                        <select name="preferred_language">
+                            <option value="English">English</option>
+                            <option value="Spanish">Español</option>
+                            <option value="Both / Ambos">Both / Ambos</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="2. Student Information" data-es="2. Información del estudiante">2. Student Information</h3><p class="sub" data-en="Please enter the student's information as it appears on school records." data-es="Escriba la información del estudiante tal como aparece en los registros escolares.">Please enter the student's information as it appears on school records.</p>
-<div class="grid">
-<div class="field"><label data-en="Student's full name *" data-es="Nombre completo del estudiante *"></label><input name="student_name" required></div>
-<div class="field"><label data-en="Date of birth *" data-es="Fecha de nacimiento *"></label><input type="date" name="student_dob" required></div>
-<div class="field"><label data-en="School name *" data-es="Nombre de la escuela *"></label><input name="school_name" required></div>
-<div class="field"><label data-en="Grade level *" data-es="Grado escolar *"></label><select name="grade" required><option value="">Select / Seleccione</option><option>Kindergarten / Jardín de infancia</option><option>1st / 1.º</option><option>2nd / 2.º</option><option>3rd / 3.º</option><option>4th / 4.º</option><option>5th / 5.º</option><option>6th / 6.º</option><option>7th / 7.º</option><option>8th / 8.º</option><option>9th / 9.º</option><option>10th / 10.º</option><option>11th / 11.º</option><option>12th / 12.º</option></select></div>
-<div class="field full"><label data-en="Student's home address *" data-es="Dirección del domicilio del estudiante *"></label><input name="student_address" required autocomplete="street-address"></div>
-<div class="field"><label data-en="How long has your child participated in Aspire High's education program? *" data-es="¿Cuánto tiempo lleva su hijo/a participando en el programa educativo de Aspire High? *"></label><select name="program_duration" required><option value="">Select / Seleccione</option><option>New participant / Nuevo participante</option><option>Less than 1 month / Menos de 1 mes</option><option>1–6 months / 1–6 meses</option><option>6–12 months / 6–12 meses</option><option>1 year / 1 año</option><option>2 years / 2 años</option><option>3+ years / 3 años o más</option></select></div>
-<div class="field"><label data-en="If returning, what motivates you to continue? (optional)" data-es="Si continúa en el programa, ¿qué le motiva a seguir? (opcional)"></label><textarea name="returning_reason"></textarea></div>
-</div></section>
+            <section class="section">
+                <h3 data-en="2. Student Information" data-es="2. Información del estudiante">2. Student Information</h3>
+                <p class="sub" data-en="Please enter the student's information as it appears on school records." data-es="Escriba la información del estudiante tal como aparece en los registros escolares.">Please enter the student's information as it appears on school records.</p>
+                <div class="grid">
+                    <div class="field">
+                        <label data-en="Student's full name *" data-es="Nombre completo del estudiante *"></label>
+                        <input name="student_name" required>
+                    </div>
+                    <div class="field">
+                        <label data-en="Date of birth *" data-es="Fecha de nacimiento *"></label>
+                        <input type="date" name="student_dob" required>
+                    </div>
+                    <div class="field">
+                        <label data-en="School name *" data-es="Nombre de la escuela *"></label>
+                        <input name="school_name" required>
+                    </div>
+                    <div class="field">
+                        <label data-en="Grade level *" data-es="Grado escolar *"></label>
+                        <select name="grade" required>
+                            <option value="">Select / Seleccione</option>
+                            <option>Kindergarten / Jardín de infancia</option>
+                            <option>1st / 1.º</option>
+                            <option>2nd / 2.º</option>
+                            <option>3rd / 3.º</option>
+                            <option>4th / 4.º</option>
+                            <option>5th / 5.º</option>
+                            <option>6th / 6.º</option>
+                            <option>7th / 7.º</option>
+                            <option>8th / 8.º</option>
+                            <option>9th / 9.º</option>
+                            <option>10th / 10.º</option>
+                            <option>11th / 11.º</option>
+                            <option>12th / 12.º</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label data-en="Student's home address *" data-es="Dirección del domicilio del estudiante *"></label>
+                        <input name="student_address" required autocomplete="street-address">
+                    </div>
+                    <div class="field">
+                        <label data-en="How long has your child participated in Aspire High's education program? *" data-es="¿Cuánto tiempo lleva su hijo/a participando en el programa educativo de Aspire High? *"></label>
+                        <select name="program_duration" required>
+                            <option value="">Select / Seleccione</option>
+                            <option>New participant / Nuevo participante</option>
+                            <option>Less than 1 month / Menos de 1 mes</option>
+                            <option>1–6 months / 1–6 meses</option>
+                            <option>6–12 months / 6–12 meses</option>
+                            <option>1 year / 1 año</option>
+                            <option>2 years / 2 años</option>
+                            <option>3+ years / 3 años o más</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="If returning, what motivates you to continue? (optional)" data-es="Si continúa en el programa, ¿qué le motiva a seguir? (opcional)"></label>
+                        <textarea name="returning_reason"></textarea>
+                    </div>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="3. Tutoring & Educational Services" data-es="3. Tutoría y servicios educativos">3. Tutoring & Educational Services</h3><p class="sub" data-en="Select all services you would like your child to receive." data-es="Seleccione todos los servicios que desea para su hijo/a.">Select all services you would like your child to receive.</p>
-<div class="options" id="services">
-<label><input type="checkbox" name="services" value="Elementary reading and writing / Lectura y escritura primaria">Elementary: Reading & writing / Primaria: lectura y escritura</label>
-<label><input type="checkbox" name="services" value="Elementary mathematics / Matemáticas primaria">Elementary: Mathematics / Primaria: matemáticas</label>
-<label><input type="checkbox" name="services" value="Elementary science and social studies / Ciencias y estudios sociales primaria">Elementary: Science & social studies / Primaria: ciencias y estudios sociales</label>
-<label><input type="checkbox" name="services" value="Summer academic advancement / Programa académico de verano">Summer math and language arts / Matemáticas y lengua en verano</label>
-<label><input type="checkbox" name="services" value="Middle school ELA, math, science, social studies / Secundaria">Middle school: ELA, math, science, social studies / Intermedia: lengua, matemáticas, ciencias y estudios sociales</label>
-<label><input type="checkbox" name="services" value="Middle school Spanish, study skills, test prep / Español, hábitos de estudio, preparación de exámenes">Middle school: Spanish, study skills & test prep / Intermedia: español, hábitos de estudio y exámenes</label>
-<label><input type="checkbox" name="services" value="High school English, math, science, social studies / Preparatoria">High school: English, math, science & social studies / Preparatoria: inglés, matemáticas, ciencias y estudios sociales</label>
-<label><input type="checkbox" name="services" value="AP and specialized subject tutoring / Tutoría AP y materias especializadas">Advanced Placement (AP) and specialized subjects / Cursos AP y materias especializadas</label>
-<label><input type="checkbox" name="services" value="SAT/ACT preparation / Preparación SAT/ACT">SAT / ACT preparation / Preparación SAT / ACT</label>
-<label><input type="checkbox" name="services" value="College applications / Solicitudes universitarias">College application support / Apoyo con solicitudes universitarias</label>
-<label><input type="checkbox" name="services" value="Scholarships and financial aid / Becas y ayuda financiera">Scholarships & financial aid / Becas y ayuda financiera</label>
-<label><input type="checkbox" name="services" value="ESL, Spanish, GED / Inglés, español, GED">ESL, Spanish or GED preparation / Inglés, español o preparación GED</label>
-<label><input type="checkbox" name="services" value="Standardized test preparation / Exámenes estandarizados">Standardized test preparation (MAP, state tests) / Exámenes estandarizados</label>
-</div></section>
+            <section class="section">
+                <h3 data-en="3. Tutoring & Educational Services" data-es="3. Tutoría y servicios educativos">3. Tutoring & Educational Services</h3>
+                <p class="sub" data-en="Select all services you would like your child to receive." data-es="Seleccione todos los servicios que desea para su hijo/a.">Select all services you would like your child to receive.</p>
+                <div class="options" id="services">
+                    <label>
+                        <input type="checkbox" name="services" value="Elementary reading and writing / Lectura y escritura primaria">
+                        Elementary: Reading & writing / Primaria: lectura y escritura
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Elementary mathematics / Matemáticas primaria">
+                        Elementary: Mathematics / Primaria: matemáticas
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Elementary science and social studies / Ciencias y estudios sociales primaria">
+                        Elementary: Science & social studies / Primaria: ciencias y estudios sociales
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Summer academic advancement / Programa académico de verano">
+                        Summer math and language arts / Matemáticas y lengua en verano
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Middle school ELA, math, science, social studies / Secundaria">
+                        Middle school: ELA, math, science, social studies / Intermedia: lengua, matemáticas, ciencias y estudios sociales
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Middle school Spanish, study skills, test prep / Español, hábitos de estudio, preparación de exámenes">
+                        Middle school: Spanish, study skills & test prep / Intermedia: español, hábitos de estudio y exámenes
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="High school English, math, science, social studies / Preparatoria">
+                        High school: English, math, science & social studies / Preparatoria: inglés, matemáticas, ciencias y estudios sociales
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="AP and specialized subject tutoring / Tutoría AP y materias especializadas">
+                        Advanced Placement (AP) and specialized subjects / Cursos AP y materias especializadas
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="SAT/ACT preparation / Preparación SAT/ACT">
+                        SAT / ACT preparation / Preparación SAT / ACT
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="College applications / Solicitudes universitarias">
+                        College application support / Apoyo con solicitudes universitarias
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Scholarships and financial aid / Becas y ayuda financiera">
+                        Scholarships & financial aid / Becas y ayuda financiera
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="ESL, Spanish, GED / Inglés, español, GED">
+                        ESL, Spanish or GED preparation / Inglés, español o preparación GED
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services" value="Standardized test preparation / Exámenes estandarizados">
+                        Standardized test preparation (MAP, state tests) / Exámenes estandarizados
+                    </label>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="4. Student Workshops & Personal Development" data-es="4. Talleres y desarrollo personal del estudiante">4. Student Workshops & Personal Development</h3><p class="sub" data-en="Choose any workshops that interest your child." data-es="Seleccione los talleres que le interesan a su hijo/a.">Choose any workshops that interest your child.</p>
-<div class="options">
-<label><input type="checkbox" name="workshops" value="Emotional awareness / Conciencia emocional">Understanding emotions / Comprender las emociones</label>
-<label><input type="checkbox" name="workshops" value="Empathy and kindness / Empatía y amabilidad">Empathy and kindness / Empatía y amabilidad</label>
-<label><input type="checkbox" name="workshops" value="Self-esteem / Autoestima">Building self-esteem / Fortalecer la autoestima</label>
-<label><input type="checkbox" name="workshops" value="Friendship skills / Amistades saludables">Healthy friendship skills / Amistades saludables</label>
-<label><input type="checkbox" name="workshops" value="Conflict resolution / Resolución de conflictos">Conflict resolution / Resolución de conflictos</label>
-<label><input type="checkbox" name="workshops" value="Mindfulness and relaxation / Atención plena y relajación">Mindfulness and relaxation / Atención plena y relajación</label>
-<label><input type="checkbox" name="workshops" value="Growth mindset / Mentalidad de crecimiento">Growth mindset / Mentalidad de crecimiento</label>
-<label><input type="checkbox" name="workshops" value="Teamwork / Trabajo en equipo">Teamwork and cooperation / Trabajo en equipo</label>
-<label><input type="checkbox" name="workshops" value="Stress management / Manejo del estrés">Stress management / Manejo del estrés</label>
-<label><input type="checkbox" name="workshops" value="Resilience / Resiliencia">Building resilience / Desarrollar resiliencia</label>
-<label><input type="checkbox" name="workshops" value="Communication / Comunicación">Effective communication / Comunicación eficaz</label>
-<label><input type="checkbox" name="workshops" value="Goal setting / Metas">Goal setting / Establecer metas</label>
-<label><input type="checkbox" name="workshops" value="Digital citizenship / Ciudadanía digital">Digital citizenship / Ciudadanía digital</label>
-<label><input type="checkbox" name="workshops" value="Mental health awareness / Salud emocional">Mental health awareness / Bienestar emocional</label>
-<label><input type="checkbox" name="workshops" value="Career and life goals / Metas profesionales y personales">Career and life goals / Metas profesionales y personales</label>
-<label><input type="checkbox" name="workshops" value="Healthy relationships / Relaciones saludables">Healthy relationships / Relaciones saludables</label>
-</div></section>
+            <section class="section">
+                <h3 data-en="4. Student Workshops & Personal Development" data-es="4. Talleres y desarrollo personal del estudiante">4. Student Workshops & Personal Development</h3>
+                <p class="sub" data-en="Choose any workshops that interest your child." data-es="Seleccione los talleres que le interesan a su hijo/a.">Choose any workshops that interest your child.</p>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" name="workshops" value="Emotional awareness / Conciencia emocional">
+                        Understanding emotions / Comprender las emociones
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Empathy and kindness / Empatía y amabilidad">
+                        Empathy and kindness / Empatía y amabilidad
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Self-esteem / Autoestima">
+                        Building self-esteem / Fortalecer la autoestima
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Friendship skills / Amistades saludables">
+                        Healthy friendship skills / Amistades saludables
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Conflict resolution / Resolución de conflictos">
+                        Conflict resolution / Resolución de conflictos
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Mindfulness and relaxation / Atención plena y relajación">
+                        Mindfulness and relaxation / Atención plena y relajación
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Growth mindset / Mentalidad de crecimiento">
+                        Growth mindset / Mentalidad de crecimiento
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Teamwork / Trabajo en equipo">
+                        Teamwork and cooperation / Trabajo en equipo
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Stress management / Manejo del estrés">
+                        Stress management / Manejo del estrés
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Resilience / Resiliencia">
+                        Building resilience / Desarrollar resiliencia
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Communication / Comunicación">
+                        Effective communication / Comunicación eficaz
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Goal setting / Metas">
+                        Goal setting / Establecer metas
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Digital citizenship / Ciudadanía digital">
+                        Digital citizenship / Ciudadanía digital
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Mental health awareness / Salud emocional">
+                        Mental health awareness / Bienestar emocional
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Career and life goals / Metas profesionales y personales">
+                        Career and life goals / Metas profesionales y personales
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workshops" value="Healthy relationships / Relaciones saludables">
+                        Healthy relationships / Relaciones saludables
+                    </label>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="5. Academic Needs & Strengths" data-es="5. Necesidades y fortalezas académicas">5. Academic Needs & Strengths</h3>
-<div class="field"><span class="legend" data-en="Which areas would benefit from additional support? (Select all that apply)" data-es="¿En qué áreas necesita apoyo adicional? (Seleccione todas las que correspondan)">Which areas would benefit from additional support? (Select all that apply)</span>
-<div class="options">
-<label><input type="checkbox" name="concerns" value="Math / Matemáticas">Math / Matemáticas</label><label><input type="checkbox" name="concerns" value="Reading / Lectura">Reading / Lectura</label>
-<label><input type="checkbox" name="concerns" value="Writing / Escritura">Writing / Escritura</label><label><input type="checkbox" name="concerns" value="Science / Ciencias">Science / Ciencias</label>
-<label><input type="checkbox" name="concerns" value="Social studies / Estudios sociales">Social studies / Estudios sociales</label><label><input type="checkbox" name="concerns" value="Reading comprehension / Comprensión lectora">Reading comprehension / Comprensión lectora</label>
-<label><input type="checkbox" name="concerns" value="Time management / Manejo del tiempo">Time management / Manejo del tiempo</label><label><input type="checkbox" name="concerns" value="Study habits / Hábitos de estudio">Study habits / Hábitos de estudio</label>
-<label><input type="checkbox" name="concerns" value="Test anxiety / Ansiedad ante exámenes">Test anxiety / Ansiedad ante exámenes</label><label><input type="checkbox" name="concerns" value="Focus and attention / Concentración">Focus and attention / Concentración</label>
-<label><input type="checkbox" name="concerns" value="Organization / Organización">Organization / Organización</label><label><input type="checkbox" name="concerns" value="Motivation / Motivación">Motivation / Motivación</label>
-<label><input type="checkbox" name="concerns" value="Language development / Desarrollo del idioma">Language development / Desarrollo del idioma</label><label><input type="checkbox" name="concerns" value="Self-advocacy / Autodefensa académica">Self-advocacy / Pedir ayuda y expresar necesidades</label>
-</div></div>
-<div class="grid" style="margin-top:16px">
-<div class="field"><label data-en="What are your child's academic strengths?" data-es="¿Cuáles son las fortalezas académicas de su hijo/a?"></label><textarea name="strengths"></textarea></div>
-<div class="field"><label data-en="Which subjects should we prioritize?" data-es="¿Qué materias debemos priorizar?"></label><textarea name="priority_subjects"></textarea></div>
-<div class="field"><label data-en="Does your child have an IEP or 504 Plan? *" data-es="¿Su hijo/a tiene un IEP o Plan 504? *"></label><select name="iep_504" required><option value="">Select / Seleccione</option><option>Yes / Sí</option><option>No</option><option>Not sure / No estoy seguro/a</option><option>Prefer to discuss / Prefiero hablarlo</option></select><p class="hint" data-en="You do not need to upload or share confidential records in this form. We can discuss support needs privately." data-es="No necesita subir ni compartir documentos confidenciales en este formulario. Podemos conversar en privado sobre las necesidades de apoyo.">You do not need to upload or share confidential records in this form. We can discuss support needs privately.</p></div>
-<div class="field"><label data-en="What are your main goals for tutoring? *" data-es="¿Cuáles son sus principales metas para la tutoría? *"></label><textarea name="goals" required></textarea></div>
-<div class="field full"><label data-en="Additional comments, questions, or concerns" data-es="Comentarios, preguntas o inquietudes adicionales"></label><textarea name="comments"></textarea></div>
-</div></section>
+            <section class="section">
+                <h3 data-en="5. Academic Needs & Strengths" data-es="5. Necesidades y fortalezas académicas">5. Academic Needs & Strengths</h3>
+                <div class="field">
+                    <span class="legend" data-en="Which areas would benefit from additional support? (Select all that apply)" data-es="¿En qué áreas necesita apoyo adicional? (Seleccione todas las que correspondan)">Which areas would benefit from additional support? (Select all that apply)</span>
+                    <div class="options">
+                        <label>
+                            <input type="checkbox" name="concerns" value="Math / Matemáticas">
+                            Math / Matemáticas
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Reading / Lectura">
+                            Reading / Lectura
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Writing / Escritura">
+                            Writing / Escritura
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Science / Ciencias">
+                            Science / Ciencias
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Social studies / Estudios sociales">
+                            Social studies / Estudios sociales
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Reading comprehension / Comprensión lectora">
+                            Reading comprehension / Comprensión lectora
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Time management / Manejo del tiempo">
+                            Time management / Manejo del tiempo
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Study habits / Hábitos de estudio">
+                            Study habits / Hábitos de estudio
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Test anxiety / Ansiedad ante exámenes">
+                            Test anxiety / Ansiedad ante exámenes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Focus and attention / Concentración">
+                            Focus and attention / Concentración
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Organization / Organización">
+                            Organization / Organización
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Motivation / Motivación">
+                            Motivation / Motivación
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Language development / Desarrollo del idioma">
+                            Language development / Desarrollo del idioma
+                        </label>
+                        <label>
+                            <input type="checkbox" name="concerns" value="Self-advocacy / Autodefensa académica">
+                            Self-advocacy / Pedir ayuda y expresar necesidades
+                        </label>
+                    </div>
+                </div>
+                <div class="grid" style="margin-top:16px">
+                    <div class="field">
+                        <label data-en="What are your child's academic strengths?" data-es="¿Cuáles son las fortalezas académicas de su hijo/a?"></label>
+                        <textarea name="strengths"></textarea>
+                    </div>
+                    <div class="field">
+                        <label data-en="Which subjects should we prioritize?" data-es="¿Qué materias debemos priorizar?"></label>
+                        <textarea name="priority_subjects"></textarea>
+                    </div>
+                    <div class="field">
+                        <label data-en="Does your child have an IEP or 504 Plan? *" data-es="¿Su hijo/a tiene un IEP o Plan 504? *"></label>
+                        <select name="iep_504" required>
+                            <option value="">Select / Seleccione</option>
+                            <option>Yes / Sí</option>
+                            <option>No</option>
+                            <option>Not sure / No estoy seguro/a</option>
+                            <option>Prefer to discuss / Prefiero hablarlo</option>
+                        </select>
+                        <p class="hint" data-en="You do not need to upload or share confidential records in this form. We can discuss support needs privately." data-es="No necesita subir ni compartir documentos confidenciales en este formulario. Podemos conversar en privado sobre las necesidades de apoyo.">You do not need to upload or share confidential records in this form. We can discuss support needs privately.</p>
+                    </div>
+                    <div class="field">
+                        <label data-en="What are your main goals for tutoring? *" data-es="¿Cuáles son sus principales metas para la tutoría? *"></label>
+                        <textarea name="goals" required></textarea>
+                    </div>
+                    <div class="field full">
+                        <label data-en="Additional comments, questions, or concerns" data-es="Comentarios, preguntas o inquietudes adicionales"></label>
+                        <textarea name="comments"></textarea>
+                    </div>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="6. Teacher & Learning Resources (Optional)" data-es="6. Información del maestro y recursos educativos (Opcional)">6. Teacher & Learning Resources (Optional)</h3>
-<div class="grid">
-<div class="field"><label data-en="Teacher name, subject, and school email" data-es="Nombre del maestro/a, materia y correo escolar"></label><input name="teacher_1" placeholder="Example: Ms. Ortiz — Math — email"></div>
-<div class="field"><label data-en="Additional teacher contact (if applicable)" data-es="Otro contacto docente (si corresponde)"></label><input name="teacher_2"></div>
-<div class="field"><label data-en="School or learning platform website (URL only)" data-es="Sitio web de la escuela o plataforma educativa (solo URL)"></label><input type="url" name="learning_url" placeholder="https://"></div>
-<div class="field"><label data-en="Platform username (never enter a password)" data-es="Nombre de usuario de la plataforma (nunca escriba una contraseña)"></label><input name="learning_username"></div>
-</div><p class="hint" data-en="For your child's privacy, do not enter passwords or sensitive login information." data-es="Para proteger la privacidad de su hijo/a, no escriba contraseñas ni datos confidenciales de acceso.">For your child's privacy, do not enter passwords or sensitive login information.</p>
-</section>
+            <section class="section">
+                <h3 data-en="6. Teacher & Learning Resources (Optional)" data-es="6. Información del maestro y recursos educativos (Opcional)">6. Teacher & Learning Resources (Optional)</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label data-en="Teacher name, subject, and school email" data-es="Nombre del maestro/a, materia y correo escolar"></label>
+                        <input name="teacher_1" placeholder="Example: Ms. Ortiz — Math — email">
+                    </div>
+                    <div class="field">
+                        <label data-en="Additional teacher contact (if applicable)" data-es="Otro contacto docente (si corresponde)"></label>
+                        <input name="teacher_2">
+                    </div>
+                    <div class="field">
+                        <label data-en="School or learning platform website (URL only)" data-es="Sitio web de la escuela o plataforma educativa (solo URL)"></label>
+                        <input type="url" name="learning_url" placeholder="https://">
+                    </div>
+                    <div class="field">
+                        <label data-en="Platform username (never enter a password)" data-es="Nombre de usuario de la plataforma (nunca escriba una contraseña)"></label>
+                        <input name="learning_username">
+                    </div>
+                </div>
+                <p class="hint" data-en="For your child's privacy, do not enter passwords or sensitive login information." data-es="Para proteger la privacidad de su hijo/a, no escriba contraseñas ni datos confidenciales de acceso.">For your child's privacy, do not enter passwords or sensitive login information.</p>
+            </section>
 
-<section class="section">
-<h3 data-en="7. Tutoring Availability" data-es="7. Disponibilidad para tutorías">7. Tutoring Availability</h3>
-<p class="sub" data-en="Sessions are typically one hour and held online. Select up to four preferred day/time options. We will confirm the final schedule with you." data-es="Las sesiones suelen durar una hora y se realizan en línea. Seleccione hasta cuatro opciones de día y horario. Confirmaremos el horario final con usted.">Sessions are typically one hour and held online. Select up to four preferred day/time options. We will confirm the final schedule with you.</p>
-<div class="grid">
-<div class="field"><label data-en="Preferred day 1 *" data-es="Día preferido 1 *"></label><select name="day1" required class="day"><option value="">Select / Seleccione</option></select></div><div class="field"><label data-en="Preferred time 1 *" data-es="Horario preferido 1 *"></label><select name="time1" required class="time"><option value="">Select / Seleccione</option></select></div>
-<div class="field"><label data-en="Preferred day 2" data-es="Día preferido 2"></label><select name="day2" class="day"><option value="">Select / Seleccione</option></select></div><div class="field"><label data-en="Preferred time 2" data-es="Horario preferido 2"></label><select name="time2" class="time"><option value="">Select / Seleccione</option></select></div>
-<div class="field"><label data-en="Preferred day 3" data-es="Día preferido 3"></label><select name="day3" class="day"><option value="">Select / Seleccione</option></select></div><div class="field"><label data-en="Preferred time 3" data-es="Horario preferido 3"></label><select name="time3" class="time"><option value="">Select / Seleccione</option></select></div>
-<div class="field"><label data-en="Preferred day 4" data-es="Día preferido 4"></label><select name="day4" class="day"><option value="">Select / Seleccione</option></select></div><div class="field"><label data-en="Preferred time 4" data-es="Horario preferido 4"></label><select name="time4" class="time"><option value="">Select / Seleccione</option></select></div>
-</div>
-<div class="notice" style="margin-top:16px" data-en="Scheduling note: If you need to change a confirmed session, please contact Aspire High as early as possible. The original form requested one week's notice; confirm this policy with families before enforcing it." data-es="Nota sobre el horario: Si necesita cambiar una sesión confirmada, comuníquese con Aspire High lo antes posible. El formulario anterior solicitaba una semana de aviso; confirme esta política con las familias antes de aplicarla.">Scheduling note: If you need to change a confirmed session, please contact Aspire High as early as possible. The original form requested one week's notice; confirm this policy with families before enforcing it.</div>
-</section>
+            <section class="section">
+                <h3 data-en="7. Tutoring Availability" data-es="7. Disponibilidad para tutorías">7. Tutoring Availability</h3>
+                <p class="sub" data-en="Sessions are typically one hour and held online. Select up to four preferred day/time options. We will confirm the final schedule with you." data-es="Las sesiones suelen durar una hora y se realizan en línea. Seleccione hasta cuatro opciones de día y horario. Confirmaremos el horario final con usted.">Sessions are typically one hour and held online. Select up to four preferred day/time options. We will confirm the final schedule with you.</p>
+                <div class="grid">
+                    <div class="field">
+                        <label data-en="Preferred day 1 *" data-es="Día preferido 1 *"></label>
+                        <select name="day1" required class="day">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred time 1 *" data-es="Horario preferido 1 *"></label>
+                        <select name="time1" required class="time">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred day 2" data-es="Día preferido 2"></label>
+                        <select name="day2" class="day">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred time 2" data-es="Horario preferido 2"></label>
+                        <select name="time2" class="time">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred day 3" data-es="Día preferido 3"></label>
+                        <select name="day3" class="day">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred time 3" data-es="Horario preferido 3"></label>
+                        <select name="time3" class="time">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred day 4" data-es="Día preferido 4"></label>
+                        <select name="day4" class="day">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Preferred time 4" data-es="Horario preferido 4"></label>
+                        <select name="time4" class="time">
+                            <option value="">Select / Seleccione</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="notice" style="margin-top:16px" data-en="Scheduling note: If you need to change a confirmed session, please contact Aspire High as early as possible. The original form requested one week's notice; confirm this policy with families before enforcing it." data-es="Nota sobre el horario: Si necesita cambiar una sesión confirmada, comuníquese con Aspire High lo antes posible. El formulario anterior solicitaba una semana de aviso; confirme esta política con las familias antes de aplicarla.">Scheduling note: If you need to change a confirmed session, please contact Aspire High as early as possible. The original form requested one week's notice; confirm this policy with families before enforcing it.</div>
+            </section>
 
-<section class="section">
-<h3 data-en="8. Tutoring Plan & Fees" data-es="8. Plan de tutoría y tarifas">8. Tutoring Plan & Fees</h3>
-<div class="grid">
-<div class="field"><label data-en="Number of sessions requested *" data-es="Cantidad de sesiones solicitadas *"></label><select name="session_package" required><option value="">Select / Seleccione</option><option>4 sessions / 4 sesiones</option><option>8 sessions / 8 sesiones</option><option>12 sessions / 12 sesiones</option><option>16 sessions / 16 sesiones</option></select></div>
-<div class="field"><label data-en="Requested first session date *" data-es="Fecha solicitada para la primera sesión *"></label><input type="date" name="start_date" required></div>
-<div class="field full"><label data-en="Fee and payment acknowledgment" data-es="Confirmación de tarifas y pago"></label><div class="notice" data-en="The original intake form lists a rate of $25 per one-hour session, with a $20 rate for families who receive SNAP. Please contact Aspire High to confirm eligibility, current rates, payment method, and the total before making payment." data-es="El formulario original indica una tarifa de $25 por sesión de una hora y una tarifa de $20 para familias que reciben SNAP. Comuníquese con Aspire High para confirmar elegibilidad, tarifas vigentes, método de pago y total antes de pagar.">The original intake form lists a rate of $25 per one-hour session, with a $20 rate for families who receive SNAP. Please contact Aspire High to confirm eligibility, current rates, payment method, and the total before making payment.</div></div>
-<div class="field"><label data-en="I understand that Aspire High will confirm the final plan and fees with me. *" data-es="Entiendo que Aspire High confirmará conmigo el plan final y las tarifas. *"></label><select name="fee_acknowledgment" required><option value="">Select / Seleccione</option><option>Yes / Sí</option></select></div>
-</div></section>
+            <section class="section">
+                <h3 data-en="8. Tutoring Plan & Fees" data-es="8. Plan de tutoría y tarifas">8. Tutoring Plan & Fees</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label data-en="Number of sessions requested *" data-es="Cantidad de sesiones solicitadas *"></label>
+                        <select name="session_package" required>
+                            <option value="">Select / Seleccione</option>
+                            <option>4 sessions / 4 sesiones</option>
+                            <option>8 sessions / 8 sesiones</option>
+                            <option>12 sessions / 12 sesiones</option>
+                            <option>16 sessions / 16 sesiones</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label data-en="Requested first session date *" data-es="Fecha solicitada para la primera sesión *"></label>
+                        <input type="date" name="start_date" required>
+                    </div>
+                    <div class="field full">
+                        <label data-en="Fee and payment acknowledgment" data-es="Confirmación de tarifas y pago"></label>
+                        <div class="notice" data-en="The original intake form lists a rate of $25 per one-hour session, with a $20 rate for families who receive SNAP. Please contact Aspire High to confirm eligibility, current rates, payment method, and the total before making payment." data-es="El formulario original indica una tarifa de $25 por sesión de una hora y una tarifa de $20 para familias que reciben SNAP. Comuníquese con Aspire High para confirmar elegibilidad, tarifas vigentes, método de pago y total antes de pagar.">The original intake form lists a rate of $25 per one-hour session, with a $20 rate for families who receive SNAP. Please contact Aspire High to confirm eligibility, current rates, payment method, and the total before making payment.</div>
+                    </div>
+                    <div class="field">
+                        <label data-en="I understand that Aspire High will confirm the final plan and fees with me. *" data-es="Entiendo que Aspire High confirmará conmigo el plan final y las tarifas. *"></label>
+                        <select name="fee_acknowledgment" required>
+                            <option value="">Select / Seleccione</option>
+                            <option>Yes / Sí</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="9. Parent & Student Commitment" data-es="9. Compromiso de padres y estudiantes">9. Parent & Student Commitment</h3>
-<p class="sub" data-en="Please review each expectation and check the box to acknowledge it." data-es="Revise cada expectativa y marque la casilla para confirmarla.">Please review each expectation and check the box to acknowledge it.</p>
-<div class="options">
-<label><input type="checkbox" name="commitments" value="Materials ready / Materiales listos" required>Student will have books, notes, assignments, and supplies ready. / El estudiante tendrá listos sus libros, notas, tareas y materiales.</label>
-<label><input type="checkbox" name="commitments" value="Quiet workspace / Espacio tranquilo">Student will use a quiet, well-lit workspace. / El estudiante utilizará un espacio tranquilo y bien iluminado.</label>
-<label><input type="checkbox" name="commitments" value="Punctuality / Puntualidad">Student will arrive/log in on time. / El estudiante llegará o iniciará sesión puntualmente.</label>
-<label><input type="checkbox" name="commitments" value="Participation / Participación">Student will participate, ask questions, and communicate respectfully. / El estudiante participará, hará preguntas y se comunicará con respeto.</label>
-<label><input type="checkbox" name="commitments" value="Camera and audio / Cámara y audio">Student will follow the tutor's agreed camera and audio guidelines. / El estudiante seguirá las pautas acordadas sobre cámara y audio.</label>
-<label><input type="checkbox" name="commitments" value="Practice work / Práctica">Student will complete agreed practice or follow-up work. / El estudiante completará las actividades de práctica acordadas.</label>
-<label><input type="checkbox" name="commitments" value="Parent communication / Comunicación familiar">Parent/guardian will communicate schedule changes and respond to program check-ins. / El padre, madre o tutor comunicará cambios de horario y responderá a los seguimientos.</label>
-</div>
-</section>
+            <section class="section">
+                <h3 data-en="9. Parent & Student Commitment" data-es="9. Compromiso de padres y estudiantes">9. Parent & Student Commitment</h3>
+                <p class="sub" data-en="Please review each expectation and check the box to acknowledge it." data-es="Revise cada expectativa y marque la casilla para confirmarla.">Please review each expectation and check the box to acknowledge it.</p>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" name="commitments" value="Materials ready / Materiales listos" required>
+                        Student will have books, notes, assignments, and supplies ready. / El estudiante tendrá listos sus libros, notas, tareas y materiales.
+                    </label>
+                    <label>
+                        <input type="checkbox" name="commitments" value="Quiet workspace / Espacio tranquilo">
+                        Student will use a quiet, well-lit workspace. / El estudiante utilizará un espacio tranquilo y bien iluminado.
+                    </label>
+                    <label>
+                        <input type="checkbox" name="commitments" value="Punctuality / Puntualidad">
+                        Student will arrive/log in on time. / El estudiante llegará o iniciará sesión puntualmente.
+                    </label>
+                    <label>
+                        <input type="checkbox" name="commitments" value="Participation / Participación">
+                        Student will participate, ask questions, and communicate respectfully. / El estudiante participará, hará preguntas y se comunicará con respeto.
+                    </label>
+                    <label>
+                        <input type="checkbox" name="commitments" value="Camera and audio / Cámara y audio">
+                        Student will follow the tutor's agreed camera and audio guidelines. / El estudiante seguirá las pautas acordadas sobre cámara y audio.
+                    </label>
+                    <label>
+                        <input type="checkbox" name="commitments" value="Practice work / Práctica">
+                        Student will complete agreed practice or follow-up work. / El estudiante completará las actividades de práctica acordadas.
+                    </label>
+                    <label>
+                        <input type="checkbox" name="commitments" value="Parent communication / Comunicación familiar">
+                        Parent/guardian will communicate schedule changes and respond to program check-ins. / El padre, madre o tutor comunicará cambios de horario y responderá a los seguimientos.
+                    </label>
+                </div>
+            </section>
 
-<section class="section">
-<h3 data-en="10. Optional Photo Permission" data-es="10. Autorización opcional para fotografías">10. Optional Photo Permission</h3>
-<p class="sub" data-en="This choice is voluntary and does not affect eligibility for tutoring or services." data-es="Esta decisión es voluntaria y no afecta la elegibilidad para tutorías o servicios.">This choice is voluntary and does not affect eligibility for tutoring or services.</p>
-<div class="field"><label data-en="May Aspire High use photos of your child in program communications or promotional materials?" data-es="¿Autoriza a Aspire High a utilizar fotografías de su hijo/a en comunicaciones o materiales promocionales del programa?"></label>
-<select name="photo_permission"><option value="No permission / No autorizo">No, I do not give permission / No, no autorizo</option><option value="Yes, permission granted / Sí, autorizo">Yes, I give permission / Sí, autorizo</option><option value="Discuss first / Deseo hablarlo primero">Please contact me first / Comuníquese conmigo primero</option></select></div>
-<p class="hint" data-en="A separate written media release should be provided before any image is used. Do not upload a child's photo through this form." data-es="Se debe proporcionar una autorización de imagen por separado antes de utilizar cualquier fotografía. No suba fotografías de su hijo/a mediante este formulario.">A separate written media release should be provided before any image is used. Do not upload a child's photo through this form.</p>
-</section>
+            <section class="section">
+                <h3 data-en="10. Optional Photo Permission" data-es="10. Autorización opcional para fotografías">10. Optional Photo Permission</h3>
+                <p class="sub" data-en="This choice is voluntary and does not affect eligibility for tutoring or services." data-es="Esta decisión es voluntaria y no afecta la elegibilidad para tutorías o servicios.">This choice is voluntary and does not affect eligibility for tutoring or services.</p>
+                <div class="field">
+                    <label data-en="May Aspire High use photos of your child in program communications or promotional materials?" data-es="¿Autoriza a Aspire High a utilizar fotografías de su hijo/a en comunicaciones o materiales promocionales del programa?"></label>
+                    <select name="photo_permission">
+                        <option value="No permission / No autorizo">No, I do not give permission / No, no autorizo</option>
+                        <option value="Yes, permission granted / Sí, autorizo">Yes, I give permission / Sí, autorizo</option>
+                        <option value="Discuss first / Deseo hablarlo primero">Please contact me first / Comuníquese conmigo primero</option>
+                    </select>
+                </div>
+                <p class="hint" data-en="A separate written media release should be provided before any image is used. Do not upload a child's photo through this form." data-es="Se debe proporcionar una autorización de imagen por separado antes de utilizar cualquier fotografía. No suba fotografías de su hijo/a mediante este formulario.">A separate written media release should be provided before any image is used. Do not upload a child's photo through this form.</p>
+            </section>
 
-<section class="section">
-<h3 data-en="11. Parent / Guardian Verification" data-es="11. Confirmación del padre, madre o tutor">11. Parent / Guardian Verification</h3>
-<div class="grid">
-<div class="field"><label data-en="Type your full name as your electronic acknowledgment *" data-es="Escriba su nombre completo como confirmación electrónica *"></label><input name="signature" required></div>
-<div class="field"><label data-en="Today's date *" data-es="Fecha de hoy *"></label><input type="date" name="submission_date" required></div>
-<div class="field full"><label class="options"><span><input type="checkbox" name="verification" value="I have reviewed and understand this application / He revisado y entiendo esta solicitud" required> <span data-en="I confirm that the information provided is accurate to the best of my knowledge. I have reviewed this form and understand that Aspire High will contact me about next steps. *" data-es="Confirmo que la información proporcionada es correcta según mi leal saber y entender. He revisado este formulario y entiendo que Aspire High se comunicará conmigo sobre los próximos pasos. *">I confirm that the information provided is accurate to the best of my knowledge. I have reviewed this form and understand that Aspire High will contact me about next steps. *</span></span></label></div>
-</div></section>
+            <section class="section">
+                <h3 data-en="11. Parent / Guardian Verification" data-es="11. Confirmación del padre, madre o tutor">11. Parent / Guardian Verification</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label data-en="Type your full name as your electronic acknowledgment *" data-es="Escriba su nombre completo como confirmación electrónica *"></label>
+                        <input name="signature" required>
+                    </div>
+                    <div class="field">
+                        <label data-en="Today's date *" data-es="Fecha de hoy *"></label>
+                        <input type="date" name="submission_date" required>
+                    </div>
+                    <div class="field full">
+                        <label class="options">
+                            <span>
+                                <input type="checkbox" name="verification" value="I have reviewed and understand this application / He revisado y entiendo esta solicitud" required>
+                                <span data-en="I confirm that the information provided is accurate to the best of my knowledge. I have reviewed this form and understand that Aspire High will contact me about next steps. *" data-es="Confirmo que la información proporcionada es correcta según mi leal saber y entender. He revisado este formulario y entiendo que Aspire High se comunicará conmigo sobre los próximos pasos. *">I confirm that the information provided is accurate to the best of my knowledge. I have reviewed this form and understand that Aspire High will contact me about next steps. *</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </section>
 
-<div class="notice"><strong data-en="Privacy reminder" data-es="Aviso de privacidad">Privacy reminder</strong><p data-en="Please provide only information needed to coordinate educational support. Do not enter passwords, Social Security numbers, or financial account information. Contact aspirehigheducationconsulting@gmail.com with questions." data-es="Proporcione únicamente la información necesaria para coordinar el apoyo educativo. No incluya contraseñas, números de Seguro Social ni información de cuentas financieras. Si tiene preguntas, escriba a aspirehigheducationconsulting@gmail.com.">Please provide only information needed to coordinate educational support. Do not enter passwords, Social Security numbers, or financial account information. Contact aspirehigheducationconsulting@gmail.com with questions.</p></div>
-<div class="actions"><button class="submit" type="submit" data-en="Submit Application" data-es="Enviar solicitud">Submit Application</button><span class="status" id="status" role="status" aria-live="polite"></span></div>
-<p class="small" data-en="Your form is submitted securely to the Aspire High response spreadsheet after the website administrator connects the form endpoint." data-es="Su formulario se enviará de forma segura a la hoja de respuestas de Aspire High después de que el administrador conecte el sistema de envío.">Your form is submitted securely to the Aspire High response spreadsheet after the website administrator connects the form endpoint.</p>
-</form>
-<footer>© Aspire High Youth Development Inc. · Empower · Mentor · Build Futures</footer>
-</main>
-<script>
-/* IMPORTANT: Paste your deployed Google Apps Script Web App URL below. */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTeWWc4JrF4hQKusPr9m_ypMSIw5NBAX0KuTyCvMiFGSQwTc-b6vuwGsaZhyivNv4g/exec";
-const translations = {
- days:[["Monday","Lunes"],["Tuesday","Martes"],["Wednesday","Miércoles"],["Thursday","Jueves"],["Friday","Viernes"],["Saturday","Sábado"],["Sunday","Domingo"]],
- times:[["3:00–4:00 PM","3:00–4:00 p. m."],["4:00–5:00 PM","4:00–5:00 p. m."],["5:00–6:00 PM","5:00–6:00 p. m."],["6:00–7:00 PM","6:00–7:00 p. m."],["7:00–8:00 PM","7:00–8:00 p. m."],["8:00–9:00 PM","8:00–9:00 p. m."]]
-};
-let currentLang="en";
-function setLang(lang){
- currentLang=lang;document.documentElement.lang=lang;
- document.querySelectorAll("[data-en]").forEach(el=>{const v=el.getAttribute("data-"+lang);if(v!==null){if(el.tagName==="INPUT"||el.tagName==="TEXTAREA")el.placeholder=v;else el.textContent=v;}});
- document.getElementById("enBtn").classList.toggle("active",lang==="en");document.getElementById("esBtn").classList.toggle("active",lang==="es");
- document.querySelectorAll(".day").forEach(fillDays);document.querySelectorAll(".time").forEach(fillTimes);
-}
-function fillDays(el){const val=el.value;el.innerHTML='<option value="">'+(currentLang==="en"?"Select":"Seleccione")+'</option>';translations.days.forEach(([en,es])=>{let o=document.createElement("option");o.value=en;o.textContent=currentLang==="en"?en:es;el.appendChild(o)});el.value=val;}
-function fillTimes(el){const val=el.value;el.innerHTML='<option value="">'+(currentLang==="en"?"Select":"Seleccione")+'</option>';translations.times.forEach(([en,es])=>{let o=document.createElement("option");o.value=en;o.textContent=currentLang==="en"?en:es;el.appendChild(o)});el.value=val;}
-document.querySelectorAll(".day").forEach(fillDays);document.querySelectorAll(".time").forEach(fillTimes);
-document.querySelector('input[name="submission_date"]').value=new Date().toISOString().slice(0,10);
-document.getElementById("intakeForm").addEventListener("submit",async e=>{
- e.preventDefault();const form=e.currentTarget;const status=document.getElementById("status");
- if(!form.reportValidity())return;
- if(SCRIPT_URL.startsWith("PASTE_")){status.textContent=currentLang==="en"?"The form is ready, but the administrator must connect the Google Sheet before submissions can be received.":"El formulario está listo, pero el administrador debe conectar la hoja de Google antes de recibir solicitudes.";return;}
- const data={};new FormData(form).forEach((v,k)=>{if(data[k]){data[k]=Array.isArray(data[k])?data[k].concat(v):[data[k],v]}else data[k]=v;});
- status.textContent=currentLang==="en"?"Submitting…":"Enviando…";
- try{await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});status.textContent=currentLang==="en"?"Thank you! Your application has been submitted. Aspire High will follow up with you.":"¡Gracias! Su solicitud ha sido enviada. Aspire High se comunicará con usted.";form.reset();document.querySelector('input[name="submission_date"]').value=new Date().toISOString().slice(0,10);}
- catch(err){status.textContent=currentLang==="en"?"We could not submit your form. Please try again or email Aspire High.":"No se pudo enviar el formulario. Inténtelo de nuevo o escriba a Aspire High.";}
-});
-</script>
-</body></html>
+            <div class="notice">
+                <strong data-en="Privacy reminder" data-es="Aviso de privacidad">Privacy reminder</strong>
+                <p data-en="Please provide only information needed to coordinate educational support. Do not enter passwords, Social Security numbers, or financial account information. Contact aspirehigheducationconsulting@gmail.com with questions." data-es="Proporcione únicamente la información necesaria para coordinar el apoyo educativo. No incluya contraseñas, números de Seguro Social ni información de cuentas financieras. Si tiene preguntas, escriba a aspirehigheducationconsulting@gmail.com.">Please provide only information needed to coordinate educational support. Do not enter passwords, Social Security numbers, or financial account information. Contact aspirehigheducationconsulting@gmail.com with questions.</p>
+            </div>
+            <div class="actions">
+                <button class="submit" type="submit" data-en="Submit Application" data-es="Enviar solicitud">Submit Application</button>
+                <span class="status" id="status" role="status" aria-live="polite"></span>
+            </div>
+            <p class="small" data-en="Your form is submitted securely to the Aspire High response spreadsheet after the website administrator connects the form endpoint." data-es="Su formulario se enviará de forma segura a la hoja de respuestas de Aspire High después de que el administrador conecte el sistema de envío.">Your form is submitted securely to the Aspire High response spreadsheet after the website administrator connects the form endpoint.</p>
+        </form>
+        <footer>© Aspire High Youth Development Inc. · Empower · Mentor · Build Futures</footer>
+    </main>
+    <script>
+    /* IMPORTANT: Paste your deployed Google Apps Script Web App URL below. */
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTeWWc4JrF4hQKusPr9m_ypMSIw5NBAX0KuTyCvMiFGSQwTc-b6vuwGsaZhyivNv4g/exec";
+    const translations = {
+        days: [["Monday", "Lunes"], ["Tuesday", "Martes"], ["Wednesday", "Miércoles"], ["Thursday", "Jueves"], ["Friday", "Viernes"], ["Saturday", "Sábado"], ["Sunday", "Domingo"]],
+        times: [["3:00–4:00 PM", "3:00–4:00 p. m."], ["4:00–5:00 PM", "4:00–5:00 p. m."], ["5:00–6:00 PM", "5:00–6:00 p. m."], ["6:00–7:00 PM", "6:00–7:00 p. m."], ["7:00–8:00 PM", "7:00–8:00 p. m."], ["8:00–9:00 PM", "8:00–9:00 p. m."]]
+    };
+    let currentLang = "en";
+    function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-en]").forEach(el => {
+            const v = el.getAttribute("data-" + lang);
+            if (v !== null) {
+                if (el.tagName === "INPUT" || el.tagName === "TEXTAREA")
+                    el.placeholder = v;
+                else
+                    el.textContent = v;
+            }
+        });
+        document.getElementById("enBtn").classList.toggle("active", lang === "en");
+        document.getElementById("esBtn").classList.toggle("active", lang === "es");
+        document.querySelectorAll(".day").forEach(fillDays);
+        document.querySelectorAll(".time").forEach(fillTimes);
+    }
+    function fillDays(el) {
+        const val = el.value;
+        el.innerHTML = '<option value="">' + (currentLang === "en" ? "Select" : "Seleccione") + '</option>';
+        translations.days.forEach(([en, es]) => {
+            let o = document.createElement("option");
+            o.value = en;
+            o.textContent = currentLang === "en" ? en : es;
+            el.appendChild(o)
+        });
+        el.value = val;
+    }
+    function fillTimes(el) {
+        const val = el.value;
+        el.innerHTML = '<option value="">' + (currentLang === "en" ? "Select" : "Seleccione") + '</option>';
+        translations.times.forEach(([en, es]) => {
+            let o = document.createElement("option");
+            o.value = en;
+            o.textContent = currentLang === "en" ? en : es;
+            el.appendChild(o)
+        });
+        el.value = val;
+    }
+    document.querySelectorAll(".day").forEach(fillDays);
+    document.querySelectorAll(".time").forEach(fillTimes);
+    document.querySelector('input[name="submission_date"]').value = new Date().toISOString().slice(0, 10);
+    setLang("en");   // fills in every label (they are blank until this runs)
+    document.getElementById("intakeForm").addEventListener("submit", async e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const status = document.getElementById("status");
+        if (!form.reportValidity())
+            return;
+        if (SCRIPT_URL.startsWith("PASTE_")) {
+            status.textContent = currentLang === "en" ? "The form is ready, but the administrator must connect the Google Sheet before submissions can be received." : "El formulario está listo, pero el administrador debe conectar la hoja de Google antes de recibir solicitudes.";
+            return;
+        }
+        const data = {_sheet: "Parent Intake"};   // the tab in the Sheet these answers go to
+        new FormData(form).forEach((v, k) => {
+            if (data[k]) {
+                data[k] = Array.isArray(data[k]) ? data[k].concat(v) : [data[k], v]
+            } else
+                data[k] = v;
+        });
+        const btn = form.querySelector(".submit");
+        btn.disabled = true;
+        status.textContent = currentLang === "en" ? "Submitting…" : "Enviando…";
+        try {
+            // No custom headers, so the browser allows it and we can read the reply.
+            const r = await fetch(SCRIPT_URL, {method: "POST", body: JSON.stringify(data)});
+            const res = await r.json();
+            if (!res.ok)
+                throw new Error(res.error || "Unknown error");
+            status.textContent = (currentLang === "en" ? "Thank you! Your application has been submitted. Aspire High will follow up with you. Confirmation ID: " : "¡Gracias! Su solicitud ha sido enviada. Aspire High se comunicará con usted. Número de confirmación: ") + res.id;
+            form.reset();
+            document.querySelector('input[name="submission_date"]').value = new Date().toISOString().slice(0, 10);
+        }
+        catch (err) {
+            status.textContent = currentLang === "en" ? "We could not confirm your submission. Please email Aspire High before trying again." : "No pudimos confirmar su envío. Escriba a Aspire High antes de intentarlo de nuevo.";
+        }
+        btn.disabled = false;
+    });
+    </script>
+</body>
+</html>
