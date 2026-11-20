@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aspire High | Restaurant Food Sponsorship Application</title>
+    <style>
+    :root {
+        --navy: #102747;
+        --maroon: #7b1838;
+        --ink: #243247;
+        --muted: #657286;
+        --line: #dce2ea;
+        --pale: #f4f6fa
+    }
+
+    * {
+        box-sizing:border-box
+    }
+
+    body {
+        margin: 0;
+        background: #f3f5f8;
+        color: var(--ink);
+        font: 16px/1.5 Arial, Helvetica, sans-serif
+    }
+
+    header {
+        background: linear-gradient(115deg, var(--navy), #183b62);
+        color: white;
+        padding: 28px 18px
+    }
+
+    .head {
+        max-width: 1000px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap:14px
+    }
+
+    .mark {
+        width: 54px;
+        height: 54px;
+        border: 2px solid white;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 25px
+    }
+
+    .brand h1 {
+        font-size: 22px;
+        line-height: 1.1;
+        margin:0
+    }
+
+    .brand p {
+        margin: 5px 0 0;
+        color: #e8edf5;
+        font-size: 13px;
+        letter-spacing: .5px
+    }
+
+    main {
+        max-width: 1000px;
+        margin: 25px auto;
+        padding:0 14px 50px
+    }
+
+    .intro, .section, .notice {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        padding: 22px;
+        margin-bottom: 17px;
+        box-shadow: 0 3px 12px #15263b0a
+    }
+
+    .intro h2 {
+        margin: 0 0 7px;
+        color: var(--navy);
+        font-size:25px
+    }
+
+    .intro p {
+        margin: 7px 0;
+        color:#536176
+    }
+
+    .tag {
+        display: inline-block;
+        background: #f7eaf0;
+        color: var(--maroon);
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px
+    }
+
+    .section h3 {
+        margin: 0 0 4px;
+        color: var(--navy);
+        font-size:19px
+    }
+
+    .sub {
+        margin: 0 0 17px;
+        color: var(--muted);
+        font-size: 14px
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap:15px
+    }
+
+    .field {
+        min-width:0
+    }
+
+    .field.full {
+        grid-column: 1/-1
+    }
+
+    label, .legend {
+        display: block;
+        font-weight: 650;
+        margin: 0 0 6px;
+        color:#28374c
+    }
+
+    .req {
+        color: var(--maroon)
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid #cbd3df;
+        border-radius: 8px;
+        background: white;
+        color: #1f2d40;
+        font: inherit
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: 3px solid #dce8f5;
+        border-color:#42658d
+    }
+
+    textarea {
+        min-height: 88px;
+        resize: vertical
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap:9px 16px
+    }
+
+    .options label {
+        font-weight: 400;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin:0
+    }
+
+    .options input {
+        width: auto;
+        margin-top: 4px;
+        accent-color: var(--maroon)
+    }
+
+    .group.bad {
+        outline: 2px solid var(--maroon);
+        outline-offset: 6px;
+        border-radius: 6px
+    }
+
+    .hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top:5px
+    }
+
+    .notice {
+        border-left: 5px solid var(--maroon);
+        background: #fffafb;
+        font-size: 14px
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap:wrap
+    }
+
+    .submit {
+        background: var(--maroon);
+        color: white;
+        border: 0;
+        border-radius: 9px;
+        padding: 14px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor:pointer
+    }
+
+    .submit:hover {
+        background:#5e102b
+    }
+
+    .submit:disabled {
+        opacity: .6;
+        cursor: default
+    }
+
+    .status {
+        font-weight:600
+    }
+
+    .small {
+        font-size: 13px;
+        color: var(--muted)
+    }
+
+    .hp {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden
+    }
+
+    footer {
+        text-align: center;
+        color: #667286;
+        font-size: 13px;
+        padding: 20px
+    }
+
+    @media (max-width: 650px) {
+        .grid, .options {
+            grid-template-columns:1fr
+        }
+
+        .intro, .section {
+            padding:17px
+        }
+
+        .brand h1 {
+            font-size: 19px
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="brand">
+                <div class="mark" aria-hidden="true">✦</div>
+                <div>
+                    <h1>ASPIRE HIGH</h1>
+                    <p>YOUTH DEVELOPMENT INC. · EMPOWER · MENTOR · BUILD FUTURES</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="intro">
+            <span class="tag">RESTAURANT SPONSOR APPLICATION</span>
+            <h2>Food Sponsorship Application for College Mentorship Events</h2>
+            <p>Aspire High Youth Development Inc. hosts college mentorship events that bring students together with college mentors. Restaurants that donate or discount food help make these events possible. Tell us how you would like to support, and we will follow up to confirm the details.</p>
+            <p class="small">Fields marked * are required. Please complete one application for each restaurant.</p>
+        </div>
+        <form id="sponsorForm" novalidate>
+            <section class="section">
+                <h3>1. Restaurant Information</h3>
+                <p class="sub">Tell us about your restaurant or food business.</p>
+                <div class="grid">
+                    <div class="field">
+                        <label for="f_business">Restaurant / business name <span class="req">*</span></label>
+                        <input id="f_business" name="Restaurant name" required autocomplete="organization">
+                    </div>
+                    <div class="field">
+                        <label for="f_cuisine">Type of food / cuisine <span class="req">*</span></label>
+                        <input id="f_cuisine" name="Cuisine" required placeholder="Example: Pizza, Caribbean, Sandwiches">
+                    </div>
+                    <div class="field full">
+                        <label for="f_street">Street address <span class="req">*</span></label>
+                        <input id="f_street" name="Street address" required autocomplete="address-line1">
+                    </div>
+                    <div class="field">
+                        <label for="f_city">City <span class="req">*</span></label>
+                        <input id="f_city" name="City" required autocomplete="address-level2">
+                    </div>
+                    <div class="field">
+                        <label for="f_state">State <span class="req">*</span></label>
+                        <input id="f_state" name="State" required autocomplete="address-level1">
+                    </div>
+                    <div class="field">
+                        <label for="f_zip">ZIP code <span class="req">*</span></label>
+                        <input id="f_zip" name="ZIP" required autocomplete="postal-code" inputmode="numeric">
+                    </div>
+                    <div class="field">
+                        <label for="f_locations_count">Number of locations <span class="req">*</span></label>
+                        <select id="f_locations_count" name="Number of locations" required>
+                            <option value="">Select</option>
+                            <option>1 location</option>
+                            <option>2–5 locations</option>
+                            <option>6 or more locations</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label for="f_website">Website or social media page</label>
+                        <input id="f_website" name="Website or social media" placeholder="https://">
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>2. Primary Contact</h3>
+                <p class="sub">Who should we contact about this sponsorship?</p>
+                <div class="grid">
+                    <div class="field">
+                        <label for="f_contact">Full name <span class="req">*</span></label>
+                        <input id="f_contact" name="Contact name" required autocomplete="name">
+                    </div>
+                    <div class="field">
+                        <label for="f_role">Title / role <span class="req">*</span></label>
+                        <input id="f_role" name="Contact title" required placeholder="Example: Owner, Manager">
+                    </div>
+                    <div class="field">
+                        <label for="f_email">Email address <span class="req">*</span></label>
+                        <input id="f_email" type="email" name="Contact email" required autocomplete="email">
+                    </div>
+                    <div class="field">
+                        <label for="f_phone">Phone number <span class="req">*</span></label>
+                        <input id="f_phone" type="tel" name="Contact phone" required autocomplete="tel">
+                    </div>
+                    <div class="field">
+                        <label for="f_method">Preferred way to be contacted <span class="req">*</span></label>
+                        <select id="f_method" name="Preferred contact method" required>
+                            <option value="">Select</option>
+                            <option>Email</option>
+                            <option>Phone call</option>
+                            <option>Text message</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f_besttime">Best days or times to reach you</label>
+                        <input id="f_besttime" name="Best time to reach" placeholder="Example: Weekdays after 2 PM">
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>3. Sponsorship Details</h3>
+                <p class="sub">What would you like to provide?</p>
+                <div class="field group" data-group="Sponsorship type">
+                    <span class="legend">Type of sponsorship (select all that apply) <span class="req">*</span></span>
+                    <div class="options">
+                        <label><input type="checkbox" name="Sponsorship type" value="Full meals"> Full meals (hot entrées and sides)</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Sandwiches, wraps or boxed lunches"> Sandwiches, wraps or boxed lunches</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Pizza or party trays"> Pizza or party trays</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Snacks or appetizers"> Snacks or appetizers</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Beverages"> Beverages</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Desserts"> Desserts</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Discount on a bulk order"> Discount on a bulk order</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Gift cards or vouchers"> Gift cards or vouchers</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Cash donation"> Cash donation</label>
+                        <label><input type="checkbox" name="Sponsorship type" value="Other"> Other (describe below)</label>
+                    </div>
+                </div>
+                <div class="grid" style="margin-top:16px">
+                    <div class="field">
+                        <label for="f_serves">About how many people can you serve at one event? <span class="req">*</span></label>
+                        <select id="f_serves" name="People served per event" required>
+                            <option value="">Select</option>
+                            <option>Up to 25 people</option>
+                            <option>26–50 people</option>
+                            <option>51–100 people</option>
+                            <option>101–150 people</option>
+                            <option>More than 150 people</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f_value">Estimated value of your contribution</label>
+                        <input id="f_value" name="Estimated value" inputmode="decimal" placeholder="Example: $300">
+                    </div>
+                    <div class="field">
+                        <label for="f_frequency">How often could you sponsor? <span class="req">*</span></label>
+                        <select id="f_frequency" name="Sponsorship frequency" required>
+                            <option value="">Select</option>
+                            <option>One event</option>
+                            <option>A few events this academic year</option>
+                            <option>Ongoing partnership for multiple events</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label for="f_describe">Describe what you would like to provide</label>
+                        <textarea id="f_describe" name="Sponsorship description" placeholder="Menu items, quantities, or any conditions that apply."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>4. Events &amp; Logistics</h3>
+                <p class="sub">Help us match your donation to the right event.</p>
+                <div class="field group" data-group="Event locations">
+                    <span class="legend">Which campus events could you support? (select all that apply) <span class="req">*</span></span>
+                    <div class="options">
+                        <label><input type="checkbox" name="Event locations" value="Montclair State University"> Montclair State University</label>
+                        <label><input type="checkbox" name="Event locations" value="Kean University / Saint Peter's University"> Kean University / Saint Peter's University</label>
+                        <label><input type="checkbox" name="Event locations" value="Rider University"> Rider University</label>
+                        <label><input type="checkbox" name="Event locations" value="NYIT"> NYIT</label>
+                        <label><input type="checkbox" name="Event locations" value="University of Delaware"> University of Delaware</label>
+                        <label><input type="checkbox" name="Event locations" value="Villanova University"> Villanova University</label>
+                        <label><input type="checkbox" name="Event locations" value="West Chester University"> West Chester University</label>
+                        <label><input type="checkbox" name="Event locations" value="Rutgers University–New Brunswick"> Rutgers University–New Brunswick</label>
+                        <label><input type="checkbox" name="Event locations" value="NJIT"> NJIT</label>
+                        <label><input type="checkbox" name="Event locations" value="Rowan University"> Rowan University</label>
+                        <label><input type="checkbox" name="Event locations" value="Temple University"> Temple University</label>
+                        <label><input type="checkbox" name="Event locations" value="Stevens Institute of Technology"> Stevens Institute of Technology</label>
+                        <label><input type="checkbox" name="Event locations" value="Rutgers University–Camden"> Rutgers University–Camden</label>
+                        <label><input type="checkbox" name="Event locations" value="Monmouth University"> Monmouth University</label>
+                        <label><input type="checkbox" name="Event locations" value="Princeton University"> Princeton University</label>
+                        <label><input type="checkbox" name="Event locations" value="Not sure yet / contact me"> Not sure yet, please contact me</label>
+                    </div>
+                </div>
+                <div class="grid" style="margin-top:16px">
+                    <div class="field">
+                        <label for="f_fulfill">How would the food get to the event? <span class="req">*</span></label>
+                        <select id="f_fulfill" name="Delivery method" required>
+                            <option value="">Select</option>
+                            <option>We can deliver to the event</option>
+                            <option>Aspire High picks up from our restaurant</option>
+                            <option>We can deliver and set up on site</option>
+                            <option>Flexible, let's discuss</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f_notice">How much notice do you need? <span class="req">*</span></label>
+                        <select id="f_notice" name="Notice needed" required>
+                            <option value="">Select</option>
+                            <option>Less than 1 week</option>
+                            <option>1–2 weeks</option>
+                            <option>2–4 weeks</option>
+                            <option>More than 4 weeks</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label for="f_dates">Preferred dates or months, or dates you are unavailable</label>
+                        <textarea id="f_dates" name="Date preferences"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>5. Food Safety &amp; Dietary Needs</h3>
+                <p class="sub">Our events are attended by students, so we ask about food safety and allergens.</p>
+                <div class="field group" data-group="Dietary options">
+                    <span class="legend">Dietary options you can provide (select all that apply)</span>
+                    <div class="options">
+                        <label><input type="checkbox" name="Dietary options" value="Vegetarian"> Vegetarian</label>
+                        <label><input type="checkbox" name="Dietary options" value="Vegan"> Vegan</label>
+                        <label><input type="checkbox" name="Dietary options" value="Halal"> Halal</label>
+                        <label><input type="checkbox" name="Dietary options" value="Kosher"> Kosher</label>
+                        <label><input type="checkbox" name="Dietary options" value="Gluten-free"> Gluten-free</label>
+                        <label><input type="checkbox" name="Dietary options" value="Nut-free"> Nut-free</label>
+                        <label><input type="checkbox" name="Dietary options" value="Dairy-free"> Dairy-free</label>
+                        <label><input type="checkbox" name="Dietary options" value="None of these"> None of these</label>
+                    </div>
+                </div>
+                <div class="grid" style="margin-top:16px">
+                    <div class="field">
+                        <label for="f_allergen">Will you label ingredients and major allergens? <span class="req">*</span></label>
+                        <select id="f_allergen" name="Allergen labeling" required>
+                            <option value="">Select</option>
+                            <option>Yes, for all items</option>
+                            <option>Yes, on request</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f_permit">Do you hold a current food service license or health permit? <span class="req">*</span></label>
+                        <select id="f_permit" name="Health permit" required>
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>In process</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f_insurance">Can you provide proof of liability insurance if a campus asks for it? <span class="req">*</span></label>
+                        <select id="f_insurance" name="Proof of insurance" required>
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>Not sure</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>6. Recognition</h3>
+                <p class="sub">We like to thank our sponsors. Tell us what you prefer.</p>
+                <div class="field group" data-group="Recognition">
+                    <span class="legend">How would you like to be recognized? (select all that apply)</span>
+                    <div class="options">
+                        <label><input type="checkbox" name="Recognition" value="Thank-you at the event"> Thank-you announcement at the event</label>
+                        <label><input type="checkbox" name="Recognition" value="Social media shout-out"> Social media shout-out</label>
+                        <label><input type="checkbox" name="Recognition" value="Name or logo on event materials"> Name or logo on event materials</label>
+                        <label><input type="checkbox" name="Recognition" value="Name or logo on website"> Name or logo on the Aspire High website</label>
+                        <label><input type="checkbox" name="Recognition" value="Thank-you letter or certificate"> Thank-you letter or certificate</label>
+                        <label><input type="checkbox" name="Recognition" value="Prefer to remain anonymous"> Prefer to remain anonymous</label>
+                    </div>
+                </div>
+                <div class="grid" style="margin-top:16px">
+                    <div class="field">
+                        <label for="f_logo">May Aspire High use your restaurant's name and logo to thank sponsors?</label>
+                        <select id="f_logo" name="Logo permission">
+                            <option value="">Select</option>
+                            <option>Yes, I give permission</option>
+                            <option>No, I do not give permission</option>
+                            <option>Please contact me first</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f_social">Social media handles to tag</label>
+                        <input id="f_social" name="Social media handles" placeholder="Example: @yourrestaurant">
+                    </div>
+                </div>
+                <p class="hint">We may ask for separate written permission before any logo is used. Please do not upload logos through this form.</p>
+            </section>
+
+            <section class="section">
+                <h3>7. About Your Partnership</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label for="f_heard">How did you hear about this opportunity?</label>
+                        <select id="f_heard" name="How they heard about us">
+                            <option value="">Select</option>
+                            <option>A mentor or volunteer</option>
+                            <option>A student or family</option>
+                            <option>Social media</option>
+                            <option>Aspire High website</option>
+                            <option>Another business or organization</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label for="f_comments">Anything else you would like us to know?</label>
+                        <textarea id="f_comments" name="Additional comments"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>8. Sponsor Verification</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label for="f_sign">Type your full name as your electronic acknowledgment <span class="req">*</span></label>
+                        <input id="f_sign" name="Signature" required>
+                    </div>
+                    <div class="field">
+                        <label for="f_date">Today's date <span class="req">*</span></label>
+                        <input id="f_date" type="date" name="Signature date" required>
+                    </div>
+                    <div class="field full">
+                        <label class="options">
+                            <span>
+                                <input type="checkbox" name="Verification" value="Confirmed" required>
+                                I confirm that the information provided is accurate to the best of my knowledge. I understand that this application does not guarantee a sponsorship opportunity, that Aspire High will contact me to confirm the details, and that all food provided will be prepared, stored, and handled in line with local health regulations. <span class="req">*</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <div class="notice">
+                <strong>Privacy reminder</strong>
+                <p>Please provide only the business information needed to coordinate your donation. Do not enter payment card, bank account, or Social Security information. Contact aspirehigheducationconsulting@gmail.com with questions.</p>
+            </div>
+
+            <div class="hp" aria-hidden="true">
+                <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <div class="actions">
+                <button class="submit" type="submit" id="submitBtn">Submit Application</button>
+                <span class="status" id="status" role="status" aria-live="polite"></span>
+            </div>
+        </form>
+        <footer>© Aspire High Youth Development Inc. · Empower · Mentor · Build Futures</footer>
+    </main>
+    <script>
+    /* IMPORTANT: Paste your deployed Google Apps Script Web App URL below (the same one your other forms use). */
+    const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    // These checkbox groups need at least one box ticked.
+    const REQUIRED_GROUPS = ["Sponsorship type", "Event locations"];
+
+    const form = document.getElementById("sponsorForm");
+    const status = document.getElementById("status");
+    const button = document.getElementById("submitBtn");
+
+    function today() {
+        const d = new Date();
+        d.setMinutes(d.getMinutes() - d.getTimezoneOffset());   // use the visitor's local date
+        return d.toISOString().slice(0, 10);
+    }
+    form.elements["Signature date"].value = today();
+
+    // Returns true when every required checkbox group has at least one box ticked.
+    function checkGroups() {
+        let firstBad = null;
+        document.querySelectorAll(".group").forEach(box => {
+            const name = box.getAttribute("data-group");
+            const needed = REQUIRED_GROUPS.includes(name);
+            const ok = !needed || box.querySelector("input:checked") !== null;
+            box.classList.toggle("bad", !ok);
+            if (!ok && !firstBad) firstBad = box;
+        });
+        if (firstBad) {
+            firstBad.scrollIntoView({behavior: "smooth", block: "center"});
+            status.textContent = "Please choose at least one option in the highlighted question.";
+            return false;
+        }
+        return true;
+    }
+
+    form.addEventListener("submit", async e => {
+        e.preventDefault();
+        status.textContent = "";
+        if (!form.reportValidity()) return;
+        if (!checkGroups()) return;
+
+        // Spam trap: real visitors never see or fill this box.
+        if (form.elements["website"].value) {
+            status.textContent = "Thank you! Your application has been submitted.";
+            form.reset();
+            return;
+        }
+
+        if (SCRIPT_URL.startsWith("PASTE_")) {
+            status.textContent = "The form is ready, but the administrator must connect the Google Sheet before submissions can be received.";
+            return;
+        }
+
+        // Gather every answer. Checkbox groups become lists.
+        const data = {_sheet: "Food Sponsors"};   // the tab in the Sheet these answers go to
+        new FormData(form).forEach((v, k) => {
+            if (k === "website") return;
+            data[k] = k in data ? [].concat(data[k], v) : v;
+        });
+
+        button.disabled = true;
+        status.textContent = "Submitting…";
+        try {
+            // No custom headers, so the browser allows it and we can read the reply.
+            const r = await fetch(SCRIPT_URL, {method: "POST", body: JSON.stringify(data)});
+            const res = await r.json();
+            if (!res.ok) throw new Error(res.error || "Unknown error");
+            status.textContent = "Thank you! Your sponsorship application has been submitted. Aspire High will follow up with you. Confirmation ID: " + res.id;
+            form.reset();
+            form.elements["Signature date"].value = today();
+            window.scrollTo({top: 0, behavior: "smooth"});
+        } catch (err) {
+            status.textContent = "We could not confirm your submission. Please email Aspire High before trying again.";
+        }
+        button.disabled = false;
+    });
+    </script>
+</body>
+</html>
