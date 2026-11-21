@@ -384,10 +384,6 @@
                         <label><input type="checkbox" name="Sponsorship type" value="Cash donation"> Cash donation</label>
                         <label><input type="checkbox" name="Sponsorship type" value="Other"> Other (describe below)</label>
                     </div>
-                    <div id="otherCollegeWrap" hidden style="margin-top:12px">
-                        <label for="otherCollegeName">Name of your college <span class="req">*</span></label>
-                        <input id="otherCollegeName" name="Other college name" placeholder="Example: Seton Hall University">
-                    </div>
                 </div>
                 <div class="grid" style="margin-top:16px">
                     <div class="field">
@@ -442,7 +438,12 @@
                         <label><input type="checkbox" name="Event locations" value="Rutgers University–Camden"> Rutgers University–Camden</label>
                         <label><input type="checkbox" name="Event locations" value="Monmouth University"> Monmouth University</label>
                         <label><input type="checkbox" name="Event locations" value="Princeton University"> Princeton University</label>
+                        <label><input type="checkbox" name="Event locations" value="Other college (not listed)" id="otherCollegeBox"> My college isn't listed (type it below)</label>
                         <label><input type="checkbox" name="Event locations" value="Not sure yet / contact me"> Not sure yet, please contact me</label>
+                    </div>
+                    <div id="otherCollegeWrap" hidden style="margin-top:12px">
+                        <label for="otherCollegeName">Name of your college <span class="req">*</span></label>
+                        <input id="otherCollegeName" name="Other college name" placeholder="Example: Seton Hall University">
                     </div>
                 </div>
                 <div class="grid" style="margin-top:16px">
@@ -629,6 +630,18 @@
         return d.toISOString().slice(0, 10);
     }
     form.elements["Signature date"].value = today();
+
+    // Show a text box when "My college isn't listed" is ticked.
+    const otherBox = document.getElementById("otherCollegeBox");
+    const otherWrap = document.getElementById("otherCollegeWrap");
+    const otherName = document.getElementById("otherCollegeName");
+    function syncOther() {
+        otherWrap.hidden = !otherBox.checked;
+        otherName.required = otherBox.checked;
+        if (!otherBox.checked) otherName.value = "";
+    }
+    otherBox.addEventListener("change", syncOther);
+    form.addEventListener("reset", () => setTimeout(syncOther, 0));
 
     // Returns true when every required checkbox group has at least one box ticked.
     function checkGroups() {
